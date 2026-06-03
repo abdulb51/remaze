@@ -30,6 +30,9 @@ fn window_conf() -> Conf {
 
 #[macroquad::main(window_conf)]
 async fn main() {
+
+
+    
     let mut img_lye = StillImage::new(
         "assets/lye.png",
         130.0, // width
@@ -43,10 +46,10 @@ async fn main() {
 
     let mut img_roy = StillImage::new(
         "assets/roy.png",
-        150.0, // width
-        150.0, // height
-        700.0, // x position
-        800.0, // y position
+        200.0, // width
+        200.0, // height
+        860.0, // x position
+        810.0, // y position
         true,  // Enable stretching
         1.0,   // Normal zoom (100%)
     )
@@ -56,8 +59,8 @@ async fn main() {
         "assets/rui.png",
         130.0, // width
         130.0, // height
-        660.0, // x position
-        270.0, // y position
+        650.0, // x position
+        260.0, // y position
         true,  // Enable stretching
         1.0,   // Normal zoom (100%)
     )
@@ -90,7 +93,7 @@ async fn main() {
     let mut lye_x = 0.0;
     let mut lye_y = 0.0;
 
-    let mut roy_x = 0.0;
+  let mut roy_x = 0.0;
     let mut roy_y = 0.0;
 
     let mut rui_x = 0.0;
@@ -110,20 +113,47 @@ async fn main() {
 
         // Lye's "AI"
         let mut lye_pos = img_lye.pos();
-        println!("Lye position: x:{:.1}, y:{:.1}", lye_pos.x, lye_pos.y);
-        if lye_pos.x == 900.0 && lye_pos.y == 70.0 {
+        //println!("Lye position: x:{:.1}, y:{:.1}", lye_pos.x, lye_pos.y);
+        if lye_pos.x == 900.0 && lye_pos.y == 70.0{
             lye_x = 0.0;
-            lye_y = 1.0;
+            lye_y = 2.0;
         }
-        if lye_pos.x == 900.0 && lye_pos.y == 500.0 {
-             lye_x  = -1.0;
+
+        if lye_pos.x == 900.0 && lye_pos.y == 500.0{
+             lye_x  = -2.0;
              lye_y  = 0.0;
+            }
 
 if lye_pos.x == 500.0 && lye_pos.y == 500.0 {
     lye_x = 0.0;
-    lye_y = -1.0;
+    lye_y = -2.0;
+}
 
-        }
+if lye_pos.x == 500.0 && lye_pos.y == 450.0 {
+    lye_x = -2.0;
+    lye_y = 0.0;
+}
+
+if lye_pos.x == 330.0 && lye_pos.y == 450.0 {
+    lye_x = 0.0;
+    lye_y = 2.0;
+}
+
+if lye_pos.x == 330.0 && lye_pos.y == 620.0 {
+    lye_x = -2.0;
+    lye_y = 0.0;
+}
+
+if lye_pos.x == 26.0 && lye_pos.y == 620.0 {
+    lye_x = 0.0;
+    lye_y = -2.0;
+}
+
+if lye_pos.x == 26.0 && lye_pos.y == 70.0 {
+    lye_x = 2.0;
+    lye_y = 0.0;
+}
+
           lye_pos.y += lye_y;
         lye_pos.x += lye_x;
         img_lye.set_position(lye_pos);
@@ -131,11 +161,110 @@ if lye_pos.x == 500.0 && lye_pos.y == 500.0 {
 
         // Roy's "AI"
         let mut roy_pos = img_roy.pos();
-        {}
+         //println!("Roy position: x:{:.1}, y:{:.1}", roy_pos.x, roy_pos.y);
+        if roy_pos.x == 860.0 && roy_pos.y == 810.0 {
+    roy_x = -1.0;
+    roy_y = 0.0;
+        }
+
+  if roy_pos.x == 450.0 && roy_pos.y == 810.0 {
+    roy_x = 0.0;
+    roy_y = -1.0;
+
+        }
+         if roy_pos.x == 450.0 && roy_pos.y == 440.0 {
+    roy_x = -1.0;
+    roy_y = 0.0;
+        }
+
+     if roy_pos.x == 300.0 && roy_pos.y == 440.0 {
+    roy_x = 0.0;
+    roy_y = 1.0;
+        }
+
+        if roy_pos.x == 300.0 && roy_pos.y == 800.0 {
+    roy_x = -1.0;
+    roy_y = 0.0;
+        }
+
+         if roy_pos.x == 30.0 && roy_pos.y == 800.0 {
+    roy_x = 0.0;
+    roy_y = 1.0;
+        }
+      if roy_pos.x == 30.0 && roy_pos.y == 850.0 {
+    roy_x = 1.0;
+    roy_y = 0.0;
+        }
+    if roy_pos.x == 860.0 && roy_pos.y == 850.0 {
+    roy_x = 0.0;
+    roy_y = -1.0;
+        }
+
+       roy_pos.y += roy_y;
+        roy_pos.x += roy_x;
+        img_roy.set_position(roy_pos);
 
         // Rui's "AI"
         let mut rui_pos = img_rui.pos();
-        {}
+         //println!("Rui position: x:{:.1}, y:{:.1}", rui_pos.x, rui_pos.y);
+        if rui_pos.x == 650.0 && rui_pos.y == 260.0 {
+    rui_x = 1.0;
+    rui_y = 0.0;
+}
+
+if rui_pos.x == 900.0 && rui_pos.y == 260.0 {
+    rui_x = 0.0;
+    rui_y = 1.0;
+}
+
+if rui_pos.x == 900.0 && rui_pos.y == 450.0 {
+    rui_x = -1.0;
+    rui_y = 0.0;
+}
+
+
+if rui_pos.x == 420.0 && rui_pos.y == 450.0 {
+    rui_x = 0.0;
+    rui_y = -1.0;
+}
+
+if rui_pos.x == 420.0 && rui_pos.y == 65.0 {
+    rui_x = 1.0;
+    rui_y = 0.0;
+}
+
+
+if rui_pos.x == 905.0 && rui_pos.y == 65.0 {
+    rui_x = 0.0;
+    rui_y = 1.0;
+}
+
+if rui_pos.x == 905.0 && rui_pos.y == 455.0 {
+    rui_x = -1.0;
+    rui_y = 0.0;
+}
+
+if rui_pos.x == 300.0 && rui_pos.y == 455.0 {
+    rui_x = 0.0;
+    rui_y = -1.0;
+}
+if rui_pos.x == 300.0 && rui_pos.y == 260.0 {
+    rui_x = 1.0;
+    rui_y = 0.0;
+}
+
+          rui_pos.y += rui_y;
+        rui_pos.x += rui_x;
+        img_rui.set_position(rui_pos);
+
+
+        // check for collision with player
+        if check_collision(&img_player, &img_lye, 1)
+        {
+            
+
+
+        }
 
         // Direction to move in
         let mut move_dir = vec2(0.0, 0.0);
@@ -200,4 +329,4 @@ if lye_pos.x == 500.0 && lye_pos.y == 500.0 {
         next_frame().await;
     }
 }
-}
+
